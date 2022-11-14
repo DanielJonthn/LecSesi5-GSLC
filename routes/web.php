@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Food;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Main', function () {
-    $foodName = ['Cumi Goreng Tepung', 'Udang Asam Manis', 'Kepiting Saos Padang'];
-    $imagePath = ['https://assets-pergikuliner.com/PGWOG7iaph4z_mxl607acgsDnk4=/385x290/smart/https://assets-pergikuliner.com/uploads/image/picture/457311/picture-1486363497.jpg', 
-    'https://www.sajianbunda.com/wp-content/uploads/2016/03/Resep-Udang-Asam-Manis.jpg', 
-    'https://img.qraved.co/v2/image/data/Indonesia/jakarta/Green_Ville/Pondok_Pangandaran/15034812_1832483430374812_3849147324148219904_n.14973249871080.810-m.jpg'];
-    $stock = ['0', '12', '9'];
-    return view('main')
-    ->with('fn', $foodName)->with('img', $imagePath)->with('stk', $stock);
-});
+Route::get('/Main', [Food::class, 'index']);
