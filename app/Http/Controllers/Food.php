@@ -19,3 +19,4 @@ class Food extends Controller
         return view('main', $data);
     }
 }
+
